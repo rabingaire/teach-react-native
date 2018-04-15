@@ -15,4 +15,8 @@ export default class Main extends React.Component {
       <Routes />
     );
   }
+  
+  componentDidMount() {
+    console.disableYellowBox = true;
+  }
 }
