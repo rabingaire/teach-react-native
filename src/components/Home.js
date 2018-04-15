@@ -44,9 +44,14 @@ export default class Main extends React.Component {
     this.setState({movieName: text});
   }
 
+  handleOnCardPress = () => {
+    const { navigate } = this.props.navigation;
+    navigate('NewPage');
+  }
+
   render() {
     const movieLists = this.state.movieLists.map((movie) =>
-      <Card key={movie.id}>
+      <Card key={movie.id} handleOnCardPress={this.handleOnCardPress}>
         <Image
           style={{width: width - 20, height: 500}}
           source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}

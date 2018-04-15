@@ -3,7 +3,7 @@ import {
   Dimensions,
   StyleSheet,
   Text,
-  View,
+  TouchableOpacity,
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -11,9 +11,12 @@ const { width } = Dimensions.get('window');
 export default class Card extends React.Component {
   render() {
     return (
-      <View style={[styles.cardWrapper, this.props.style]}>
+      <TouchableOpacity
+        style={[styles.cardWrapper, this.props.style]}
+        onPress={this.props.handleOnCardPress}
+      >
         {this.props.children}
-      </View>
+      </TouchableOpacity>
     );
   }
 }
