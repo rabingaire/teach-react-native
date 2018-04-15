@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, StyleSheet, Text, TextInput, View, } from 'react-native';
 
 import Button from './common/Button';
+import Card from './common/Card';
 
 const { width } = Dimensions.get('window');
 
@@ -13,6 +14,7 @@ export default class Main extends React.Component {
           <TextInput style={styles.inputFieldStyle} placeholder='Movie Name'/>
           <Button style={styles.searchButton}>Search</Button>
         </View>
+        <Card />
       </View>
     );
   }
