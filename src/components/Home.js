@@ -91,7 +91,7 @@ export default class Main extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    marginTop: 15,
   },
   formWrapper: {
     flexDirection: 'row',
