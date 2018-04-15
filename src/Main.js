@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   Dimensions,
+  Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -12,20 +14,22 @@ import Button from './common/Button';
 import Card from './common/Card';
 
 const { width } = Dimensions.get('window');
+
 const APIKEY = 'debf5d591412d6314d598bfc0c895bbb';
 const APIURL = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}`;
 
 export default class Main extends React.Component {
   state = {
     movieName: '',
+    movieLists: [],
   }
 
   handleOnPress = () => {
     axios.get(`${APIURL}&query=${this.state.movieName}`)
-    .then(function (response) {
-      console.log(response);
+    .then((response) => {
+      this.setState({movieLists: response.data.results})
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
   }
@@ -35,6 +39,16 @@ export default class Main extends React.Component {
   }
 
   render() {
+    const movieLists = this.state.movieLists.map((movie) =>
+      <Card key={movie.id}>
+        <Image
+          style={{width: width - 20, height: 500}}
+          source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
+        />
+        <Text style={{fontSize: 20, fontWeight: 'bold', padding: 10}}>{movie.title}</Text>
+      </Card>
+    );
+
     return (
       <View style={styles.container}>
         <View style={styles.formWrapper}>
@@ -51,7 +65,11 @@ export default class Main extends React.Component {
             Search
           </Button>
         </View>
-        <Card />
+        <ScrollView style={{marginTop: 10}}>
+          {
+            movieLists
+          }
+        </ScrollView>
       </View>
     );
   }

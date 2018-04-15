@@ -12,6 +12,7 @@ export default class Card extends React.Component {
   render() {
     return (
       <View style={[styles.cardWrapper, this.props.style]}>
+        {this.props.children}
       </View>
     );
   }
@@ -19,7 +20,6 @@ export default class Card extends React.Component {
 
 const styles = StyleSheet.create({
   cardWrapper: {
-    height: 50,
     width: width - 20,
     marginTop: 20,
     marginLeft: 10,
