@@ -45,7 +45,15 @@ export default class Main extends React.Component {
           style={{width: width - 20, height: 500}}
           source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
         />
-        <Text style={{fontSize: 20, fontWeight: 'bold', padding: 10}}>{movie.title}</Text>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 10
+          }}
+        >
+          {movie.title}
+        </Text>
       </Card>
     );
 
