@@ -1,10 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableHighlight, } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
 
 export default class Button extends React.Component {
   render() {
     return (
-      <TouchableHighlight style={[styles.searchButton, this.props.style]} onPress={this.props.handleOnPress}>
+      <TouchableHighlight
+        style={[styles.searchButton, this.props.style]}
+        onPress={this.props.handleOnPress}
+      >
         <Text style={styles.buttonText}>{this.props.children}</Text>
       </TouchableHighlight>
     );

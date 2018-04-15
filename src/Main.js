@@ -1,5 +1,11 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Text, TextInput, View, } from 'react-native';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import axios from 'axios';
 
 import Button from './common/Button';
@@ -32,8 +38,18 @@ export default class Main extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.formWrapper}>
-          <TextInput style={styles.inputFieldStyle} placeholder='Movie Name' onChangeText={this.handleInput} value={this.state.movieName}/>
-          <Button style={styles.searchButton} handleOnPress={this.handleOnPress}>Search</Button>
+          <TextInput
+            style={styles.inputFieldStyle}
+            placeholder='Movie Name'
+            onChangeText={this.handleInput}
+            value={this.state.movieName}
+          />
+          <Button
+            style={styles.searchButton}
+            handleOnPress={this.handleOnPress}
+          >
+            Search
+          </Button>
         </View>
         <Card />
       </View>
