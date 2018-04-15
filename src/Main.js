@@ -38,6 +38,10 @@ export default class Main extends React.Component {
     this.setState({movieName: text});
   }
 
+  componentDidMount() {
+    console.disableYellowBox = true;
+  }
+
   render() {
     const movieLists = this.state.movieLists.map((movie) =>
       <Card key={movie.id}>
